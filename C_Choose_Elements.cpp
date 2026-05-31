@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+#define inf (int)1e18
+
+mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
+
+void Solve()
+{
+    int n;
+    cin >> n;
+    deque<int> dq;
+    bool rev = false;
+    for (int i = 0; i < n; i++)
+    {
+        int x;
+        cin >> x;
+        if (x == 0)
+        {
+            rev = !rev; // toggle direction
+        }
+        if (!rev)
+            dq.push_back(x);
+        else
+            dq.push_front(x);
+    }
+    int s = 0;
+    // If reversed at the end, reverse whole deque
+    if (rev)
+        reverse(dq.begin(), dq.end());
+    for (int x : dq)
+        s += x;
+    cout << s << '\n';
+}
+
+int32_t main()
+{
+    auto begin = std::chrono::high_resolution_clock::now();
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    int t = 1;
+    // freopen("in",  "r", stdin);
+    // freopen("out", "w", stdout);
+
+    // cin >> t;
+    for (int i = 1; i <= t; i++)
+    {
+        // cout << "Case #" << i << ": ";
+        Solve();
+    }
+    // auto end = std::chrono::high_resolution_clock::now();
+    // auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
+    // cerr << "Time measured: " << elapsed.count() * 1e-9 << " seconds.\n";
+    return 0;
+}

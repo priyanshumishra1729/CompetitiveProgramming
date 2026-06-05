@@ -8,14 +8,18 @@ using u32 = unsigned;
 #define pb push_back
 
 void solve() {
-    int n, m;
-    cin >> n >> m;
-    int ans = 0; 
-    while (m != 0) {
-        m = n % m;
-        ans++;
+    int n, m, k;
+    cin >> n >> m >> k;
+    vector<int> b(n), c(m);
+    for (int i = 0; i < n; i++) cin >> b[i];
+    for (int i = 0; i < m; i++) cin >> c[i];
+    int cnt = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (b[i] + c[j] <= k) cnt++;
+        }
     }
-    cout << ans << '\n';
+    cout << cnt << '\n';
 }
 
 int main() {
@@ -23,7 +27,7 @@ int main() {
     cin.tie(nullptr);
     
     int t = 1;
-    // cin >> t;
+    cin >> t;
     
     while (t--) {
         solve();

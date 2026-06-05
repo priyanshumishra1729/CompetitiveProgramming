@@ -6,16 +6,33 @@ using ll = long long;
 using u64 = unsigned long long;
 using u32 = unsigned;
 #define pb push_back
+const int mod = 1e9 + 7;
+
+/*
+    1 <= k <= n - 1
+
+*/
 
 void solve() {
-    int n, m;
-    cin >> n >> m;
-    int ans = 0; 
-    while (m != 0) {
-        m = n % m;
-        ans++;
+    int n; 
+    cin >> n;
+    vector<int> a(n);
+    int l = 0, r = 0;
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+        if (a[i] == 2) r++;
     }
-    cout << ans << '\n';
+    for (int k = 1; k < n; k++) {
+        if (a[k - 1] == 2) {
+            l++;
+            r--;
+        }
+        if (l == r) {
+            cout << k << '\n';
+            return;
+        }
+    }
+    cout << -1 << '\n';
 }
 
 int main() {
@@ -23,7 +40,7 @@ int main() {
     cin.tie(nullptr);
     
     int t = 1;
-    // cin >> t;
+    cin >> t;
     
     while (t--) {
         solve();

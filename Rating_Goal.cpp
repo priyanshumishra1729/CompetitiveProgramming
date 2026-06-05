@@ -7,15 +7,19 @@ using u64 = unsigned long long;
 using u32 = unsigned;
 #define pb push_back
 
+/*
+    current rating is R
+    needed rating is G 
+
+    r + x / 2 = g 
+    2 * g - r 
+
+*/
+
 void solve() {
-    int n, m;
-    cin >> n >> m;
-    int ans = 0; 
-    while (m != 0) {
-        m = n % m;
-        ans++;
-    }
-    cout << ans << '\n';
+    int r, g, n;
+    cin >> r >> g >> n; 
+    cout << 2 * g - r << '\n';
 }
 
 int main() {

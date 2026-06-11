@@ -2,19 +2,27 @@
 
 using namespace std;
 
-using i64 = long long;
+using ll = long long;
 using u64 = unsigned long long;
 using u32 = unsigned;
+#define pb push_back
 
 void solve() {
-    int n; 
-    cin>>n;
-    if (n==2) {
-        cout<<"NO\n";
-        return;
+    int k;
+    cin >> k;
+    int sum = 0;
+    vector<int> ans;
+    if (k % 2 == 0) ans.assign(k / 2, 2);
+    else {
+        ans.push_back(3);
+        for (int i = 0; i < (k - 3) / 2; i++) {
+            ans.push_back(2);
+        }
     }
-    if (n%2==0) cout<<"YES\n";
-    else cout<<"NO\n";
+    cout << ans.size() << '\n';
+    for (auto d : ans) {
+        cout << d << " ";
+    }
 }
 
 int main() {
@@ -38,4 +46,4 @@ int main() {
  * do smth instead of nothing and stay organized
  * WRITE STUFF DOWN
  * DON'T GET STUCK ON ONE APPROACH
- */ 
+ */

@@ -2,19 +2,28 @@
 
 using namespace std;
 
-using i64 = long long;
+using ll = long long;
 using u64 = unsigned long long;
 using u32 = unsigned;
+#define pb push_back
 
+// find the gcd of a and c 
+// find the gcd of b and c
+
+int gcd(int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b); 
+}
+
+// greedy approch -> can be applicable 
 void solve() {
-    int n; 
-    cin>>n;
-    if (n==2) {
-        cout<<"NO\n";
-        return;
+    int a, b, c; 
+    cin >> a >> b >> c;
+    while (a != b) {
+        a = gcd(a, c); 
+        b = gcd(b, c);
     }
-    if (n%2==0) cout<<"YES\n";
-    else cout<<"NO\n";
+    
 }
 
 int main() {
@@ -38,4 +47,4 @@ int main() {
  * do smth instead of nothing and stay organized
  * WRITE STUFF DOWN
  * DON'T GET STUCK ON ONE APPROACH
- */ 
+ */

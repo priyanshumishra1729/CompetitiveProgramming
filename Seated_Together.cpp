@@ -2,19 +2,22 @@
 
 using namespace std;
 
-using i64 = long long;
+using ll = long long;
 using u64 = unsigned long long;
 using u32 = unsigned;
+#define pb push_back
+
+/*
+    1 to 5 -> 5 6
+    6 to 10 -> 10 11
+    11 to 15 -> 15 16
+    16 to 20 -> 20 21
+    21 to 25 -> 25 26
+    .......
+*/
 
 void solve() {
-    int n; 
-    cin>>n;
-    if (n==2) {
-        cout<<"NO\n";
-        return;
-    }
-    if (n%2==0) cout<<"YES\n";
-    else cout<<"NO\n";
+    
 }
 
 int main() {
@@ -38,4 +41,4 @@ int main() {
  * do smth instead of nothing and stay organized
  * WRITE STUFF DOWN
  * DON'T GET STUCK ON ONE APPROACH
- */ 
+ */

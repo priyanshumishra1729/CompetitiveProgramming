@@ -2,19 +2,29 @@
 
 using namespace std;
 
-using i64 = long long;
+using ll = long long;
 using u64 = unsigned long long;
 using u32 = unsigned;
+#define pb push_back
+
+/*
+    
+
+*/
 
 void solve() {
-    int n; 
-    cin>>n;
-    if (n==2) {
-        cout<<"NO\n";
-        return;
+    int n;
+    cin >> n;
+    vector <int> a(n + 1), b(n + 1);
+    for (int i = 1; i <= n; i++) cin >> a[i];
+    for (int i = 1; i <= n; i++) cin >> b[i];
+    for (int i = 1; i <= n; i++) {
+        if (b[a[i]] != i) {
+            cout << "No\n";
+            return;
+        }
     }
-    if (n%2==0) cout<<"YES\n";
-    else cout<<"NO\n";
+    cout << "Yes\n";
 }
 
 int main() {
@@ -38,4 +48,4 @@ int main() {
  * do smth instead of nothing and stay organized
  * WRITE STUFF DOWN
  * DON'T GET STUCK ON ONE APPROACH
- */ 
+ */

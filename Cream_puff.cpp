@@ -2,23 +2,33 @@
 
 using namespace std;
 
-using i64 = long long;
+#define int long long 
 using u64 = unsigned long long;
 using u32 = unsigned;
+#define pb push_back
 
-void solve() {
-    vector <int> prices;
-    for (int i = 0; i < prices.size(); i++) cin >> prices[i];
-    int n = prices.size();
-    int mn = prices[0], res = 0;
-    for (int i = 0; i < n; i++) {
-        mn = min(mn, prices[i]);
-        res = max(res, prices[i] - mn);
+vector<int> l; 
+
+void divisors (int n) {
+    for (int i = 1; i * i <= n; i++) {
+        if (n % i == 0) {
+            l.push_back(i);
+            if (n / i != i) l.push_back(n / i);
+        }
     }
-    cout << res << '\n';
 }
 
-int main() {
+void solve() {
+    int x;
+    cin >> x;
+    divisors(x);
+    sort(l.begin(), l.end());
+    for (auto ans : l) {
+        cout << ans << '\n';
+    }
+} 
+
+int32_t main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     

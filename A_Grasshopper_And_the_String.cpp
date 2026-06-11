@@ -2,19 +2,31 @@
 
 using namespace std;
 
-using i64 = long long;
+using ll = long long;
 using u64 = unsigned long long;
 using u32 = unsigned;
+#define pb push_back
+
+bool isVowel(char ch) {
+    return ch=='A'||ch=='E'||ch=='I'||ch=='O'
+            ||ch=='U'||ch=='Y'; 
+}
 
 void solve() {
-    int n; 
-    cin>>n;
-    if (n==2) {
-        cout<<"NO\n";
-        return;
+    string s;
+    cin >> s;
+    int n=s.size();
+    int curr=0, l=0;
+    for (char ch:s) {
+        if (!isVowel(ch)) 
+            curr++;
+        else {
+            l=max(l,curr);
+            curr=0;
+        }
     }
-    if (n%2==0) cout<<"YES\n";
-    else cout<<"NO\n";
+    l=max(l,curr);
+    cout<<l+1<<'\n';
 }
 
 int main() {
@@ -38,4 +50,4 @@ int main() {
  * do smth instead of nothing and stay organized
  * WRITE STUFF DOWN
  * DON'T GET STUCK ON ONE APPROACH
- */ 
+ */

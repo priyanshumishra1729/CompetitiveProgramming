@@ -2,27 +2,36 @@
 
 using namespace std;
 
-using i64 = long long;
+#define int long long 
 using u64 = unsigned long long;
 using u32 = unsigned;
+#define pb push_back
 
-void solve() {
-    int n; 
-    cin>>n;
-    if (n==2) {
-        cout<<"NO\n";
-        return;
+const int m = 1e9 + 7;
+
+int binpow (int a, int p, int m) {
+    // base case 
+    if (p == 0) return 1;
+    // odd case
+    if (p % 2) return (binpow(a, p - 1, m) * a) % m;
+    else {
+        int temp = binpow(a, p / 2, m); 
+        return (temp * temp) % m;
     }
-    if (n%2==0) cout<<"YES\n";
-    else cout<<"NO\n";
 }
 
-int main() {
+void solve() {
+    int a, b;
+    cin >> a >> b;
+    cout << binpow(a % m, b, m) << '\n';
+}
+
+int32_t main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
     
     int t = 1;
-    // cin >> t;
+    cin >> t;
     
     while (t--) {
         solve();
@@ -39,3 +48,5 @@ int main() {
  * WRITE STUFF DOWN
  * DON'T GET STUCK ON ONE APPROACH
  */ 
+
+

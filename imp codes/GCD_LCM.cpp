@@ -2,19 +2,28 @@
 
 using namespace std;
 
-using i64 = long long;
+using ll = long long;
 using u64 = unsigned long long;
 using u32 = unsigned;
+#define pb push_back
+
+int gcd (int a, int b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
 
 void solve() {
-    int n; 
-    cin>>n;
-    if (n==2) {
-        cout<<"NO\n";
-        return;
+    int a, b;
+    cin >> a >> b;
+    cout << gcd(a, b) << '\n';
+    int n;
+    cin >> n;
+    vector<int> arr(n);
+    int gc = arr[0];
+    for (int i = 1; i < n; i++) {
+        gc = gcd(gc, arr[i]);
     }
-    if (n%2==0) cout<<"YES\n";
-    else cout<<"NO\n";
+    cout << gc << '\n';
 }
 
 int main() {
@@ -38,4 +47,4 @@ int main() {
  * do smth instead of nothing and stay organized
  * WRITE STUFF DOWN
  * DON'T GET STUCK ON ONE APPROACH
- */ 
+ */

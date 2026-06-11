@@ -2,19 +2,16 @@
 
 using namespace std;
 
-using i64 = long long;
+using ll = long long;
 using u64 = unsigned long long;
 using u32 = unsigned;
+#define pb push_back
 
 void solve() {
-    int n; 
-    cin>>n;
-    if (n==2) {
-        cout<<"NO\n";
-        return;
-    }
-    if (n%2==0) cout<<"YES\n";
-    else cout<<"NO\n";
+    int a, d;
+    cin >> a >> d;
+    if (a > d) cout << "No\n";
+    else cout << "Yes\n";
 }
 
 int main() {
@@ -38,4 +35,4 @@ int main() {
  * do smth instead of nothing and stay organized
  * WRITE STUFF DOWN
  * DON'T GET STUCK ON ONE APPROACH
- */ 
+ */

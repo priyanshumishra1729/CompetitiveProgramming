@@ -7,27 +7,24 @@ using u64 = unsigned long long;
 using u32 = unsigned;
 #define pb push_back
 
-// 1 -1 1 -1 -1 1 1 1
-// front of 1 there is -1 and then 1 has front -1
-// -1 and 1 can't be oppositive
-
-
 void solve() {
-    int n; 
-    cin >> n;
-    vector<int> a(n);
-    for (int i = 0; i < n; i++) cin >> a[i];
-    int free_officers = 0, untreated = 0;
-    for (int i = 0; i < n; i++) {
-        if (a[i] > 0) {
-            free_officers += a[i];
-        }
-        else {
-            if (free_officers > 0) free_officers--;
-            else untreated++; 
+    int num;
+    cin >> num;
+    vector<int> y(num + 1);
+    for (int i = 0; i < num; i++) {
+        int xx, yy;
+        cin >> xx >> yy;
+        y[xx] = yy;
+    }
+    int res = 0;
+    int mn = INT_MAX;
+    for (int x = 1; x <= num; x++) {
+        if (y[x] < mn) {
+            res++;
+            mn = y[x];
         }
     }
-    cout << untreated << '\n';
+    cout << res << '\n';
 }
 
 int main() {

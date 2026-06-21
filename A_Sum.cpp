@@ -4,12 +4,11 @@ using namespace std;
 void solve() {
     int a, b, c;
     cin >> a >> b >> c;
-    if (a - b == 0) {
-        cout << c << '\n';
+    if (a + b == c || b + c == a || a + c == b) {
+        cout << "YES\n";
     }
-    else if (b - c == 0) cout << a << '\n';
     else {
-        cout << b << '\n';
+        cout << "NO\n";
     }
 }
 

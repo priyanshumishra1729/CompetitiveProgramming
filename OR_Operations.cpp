@@ -5,16 +5,21 @@ void solve() {
     int n;
     cin >> n;
     vector<int> a(n);
-    for (int i = 0; i < n; i++) cin >> a[i];
-    int curr = 0, res = 0; 
+    int total = 0;
     for (int i = 0; i < n; i++) {
-        if (a[i] == 0) curr++;
-        else {
-            res = max(res,  curr);
+        cin >> a[i];
+        total |= a[i];
+    }
+    int seg = 0;
+    int curr = 0;
+    for (int i = 0; i < n; i++) {
+        curr |= a[i];
+        if (curr == total) {
+            seg++;
             curr = 0;
         }
     }
-    cout << max(res, curr) << '\n';
+    cout << n - seg << '\n';
 }
 
 int main() {

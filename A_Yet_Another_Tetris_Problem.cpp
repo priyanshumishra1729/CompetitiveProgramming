@@ -5,16 +5,14 @@ void solve() {
     int n;
     cin >> n;
     vector<int> a(n);
+    int odd = 0, even = 0; 
     for (int i = 0; i < n; i++) cin >> a[i];
-    int curr = 0, res = 0; 
     for (int i = 0; i < n; i++) {
-        if (a[i] == 0) curr++;
-        else {
-            res = max(res,  curr);
-            curr = 0;
-        }
+        if (a[i] & 1) odd++;
+        else even++;
     }
-    cout << max(res, curr) << '\n';
+    if (odd == n || even == n) cout << "YES\n";
+    else cout << "NO\n";
 }
 
 int main() {

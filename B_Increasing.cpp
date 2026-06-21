@@ -5,18 +5,19 @@ void solve() {
     int n;
     cin >> n;
     vector<int> a(n);
+    set<int> st;
     for (int i = 0; i < n; i++) cin >> a[i];
-    int curr = 0, res = 0; 
     for (int i = 0; i < n; i++) {
-        if (a[i] == 0) curr++;
-        else {
-            res = max(res,  curr);
-            curr = 0;
-        }
+        st.insert(a[i]);
     }
-    cout << max(res, curr) << '\n';
+    if (st.size() == n) {
+        cout << "YES\n";
+    }
+    else {
+        cout << "NO\n";
+    }
 }
-
+ 
 int main() {
     int T = 1;
     cin >> T;

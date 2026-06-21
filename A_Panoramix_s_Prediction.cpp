@@ -2,37 +2,51 @@
 
 using namespace std;
 
-using i64 = long long;
+using ll = long long;
 using u64 = unsigned long long;
 using u32 = unsigned;
+#define pb push_back
 
-// first to find out if the dist betn n ad m is 2 
-// if dist = 2 then we find if the m is a prime or not 
-// if n is even then it will give even no 
-// if n is odd then it will give odd 
-// if n is prime then i twill give odd no 
+const int m = 1e9 + 7;
 
-bool isPrime(int x) {
-    bool prime = true;
-    for (int i = 2; i <= x - 1; i++) {
+/*
+    starting from x to m 
+    then when we find the prime number then print it 
+    and break it 
+    how to make this for checking the next permutation 
+    when we take n % i then what we should choose n 
+    so that after it 
+    let's try sieve of eratosthenes 
+*/
+
+bool isPrime(ll x) { 
+    // O(sqrt(n))
+    if (x < 2) return false;
+    if (x % 2 == 0) return x == 2; 
+    for (ll i = 3; i * i <= x; i += 2) {
         if (x % i == 0) {
-            prime = false;
-            break;
-        } 
+            return false;
+        }
     }
-    return prime;
+    return true;
 }
 
 void solve() {
-    int n, m; cin >> n >> m;    
-    int dist = m - n;
-    if (dist == 2) {
-        if (isPrime(n)) {
-            cout << "NO\n";
-            return;
+    int n, m;
+    cin >> n >> m;
+    for (int i = n + 1; i <= m; i++) {
+        if (isPrime(i)) {
+            if (i == m) {
+                cout << "YES\n";
+                return;
+            }
+            else {
+                cout << "NO\n";
+                return;
+            }
         }
     }
-    cout << "YES\n";
+    cout << "NO\n";
 }
 
 int main() {

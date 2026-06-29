@@ -1,35 +1,43 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long
-#define inf (int)1e18
 
-mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
+#define ll long long
 
-// using recursion to check if it's palindrome or not 
-// then checking if it's odd   
-
-void Solve() 
+bool isOdd(int n)
 {
-    int n; cin >> n;
+    return n % 2 != 0;
+}
+bool isBPalind(int n)
+{
+    string binary = "";
+    if (n == 0)
+        binary = "0";
+    while (n > 0)
+    {
+        binary += (n % 2) + '0';
+        n /= 2;
+    }
+    string revs = binary;
+    reverse(revs.begin(), revs.end());
+    return binary == revs;
 }
 
-int32_t main() 
+void solve()
 {
-    auto begin = std::chrono::high_resolution_clock::now();
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    int t = 1;
-    // freopen("in",  "r", stdin);
-    // freopen("out", "w", stdout);
-    
+    int n;
+    cin >> n;
+    if (isOdd(n) && isBPalind(n))
+        cout << "YES\n";
+    else
+        cout << "NO\n";
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t=1;
     // cin >> t;
-    for(int i = 1; i <= t; i++) 
-    {
-        // cout << "Case #" << i << ": ";
-        Solve();
-    }
-    // auto end = std::chrono::high_resolution_clock::now();
-    // auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    // cerr << "Time measured: " << elapsed.count() * 1e-9 << " seconds.\n"; 
-    return 0;
+    while (t--)
+        solve();
 }

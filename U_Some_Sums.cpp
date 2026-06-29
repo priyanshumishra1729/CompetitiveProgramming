@@ -1,46 +1,29 @@
-#include <bits/stdc++.h>
+#include<bits/stdc++.h>
+
 using namespace std;
-#define int long long
-#define inf (int)1e18
 
-mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
-
-void Solve() 
-{
-    int n, a, b; cin >> n >> a >> b;
-    int sum = 0;
-    for (int i = 1; i <= n; i++) {
-        sum += i;
+int sumDigit(int n) {
+    int sum = 0; 
+    while (n != 0) {
+        int digit = n % 10;
+        sum += digit;
+        n /= 10;
     }
-    int ans = sum;
-    int res = 0;
-    while (sum != 0) {
-        int d = sum % 10;
-        res += d;
-        sum /= 10;
-    }
-    if (res >= a && res <= b) {
-        cout << ans << '\n';
-    }
+    return sum; 
 }
 
-int32_t main() 
-{
-    auto begin = std::chrono::high_resolution_clock::now();
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    int t = 1;
-    // freopen("in",  "r", stdin);
-    // freopen("out", "w", stdout);
-    
-    // cin >> t;
-    for(int i = 1; i <= t; i++) 
-    {
-        // cout << "Case #" << i << ": ";
-        Solve();
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(nullptr);
+    int n, a, b;
+    cin >> n >> a >> b;
+    int sum = 0; 
+    for (int i = 1; i <= n; i++) {
+        int sd = sumDigit(i); 
+        if (sd >= a && sd <= b) {
+            sum += i; 
+        }
     }
-    // auto end = std::chrono::high_resolution_clock::now();
-    // auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    // cerr << "Time measured: " << elapsed.count() * 1e-9 << " seconds.\n"; 
+    cout << sum << '\n';
     return 0;
 }

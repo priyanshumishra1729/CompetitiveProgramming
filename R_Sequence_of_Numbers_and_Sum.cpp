@@ -1,44 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define int long long
-#define inf (int)1e18
 
-mt19937_64 RNG(chrono::steady_clock::now().time_since_epoch().count());
+#define ll long long
 
-void Solve() 
-{
-    int n, m; 
-    int sum = 0;
-    while (cin >> n && cin >> m) {
-        if (m <= 0 || n <= 0) {
-
+void solve() {
+    int n,m;
+    int sum=0; 
+    while(cin>>n&&cin>>m) {
+        if (n<=0||m<=0) break;
+        if (n>m)
+            swap(n,m);
+        for (int i=n; i<=m; i++) {
+            cout << i << " ";
+            sum+=i;  
         }
-        else {
-            for (int i = m; i <= n; i++) {
-                sum += i;
-            }
-        }
-         
+        cout << "sum =" << sum << '\n';
+        sum=0; 
     }
 }
 
-int32_t main() 
-{
-    auto begin = std::chrono::high_resolution_clock::now();
-    ios_base::sync_with_stdio(0);
-    cin.tie(0);
-    int t = 1;
-    // freopen("in",  "r", stdin);
-    // freopen("out", "w", stdout);
-    
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+
+    int t=1;
     // cin >> t;
-    for(int i = 1; i <= t; i++) 
-    {
-        // cout << "Case #" << i << ": ";
-        Solve();
-    }
-    // auto end = std::chrono::high_resolution_clock::now();
-    // auto elapsed = std::chrono::duration_cast<std::chrono::nanoseconds>(end - begin);
-    // cerr << "Time measured: " << elapsed.count() * 1e-9 << " seconds.\n"; 
-    return 0;
-}
+    while (t--)
+        solve();
+}       

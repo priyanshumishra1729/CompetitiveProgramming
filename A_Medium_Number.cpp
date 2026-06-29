@@ -1,43 +1,82 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <array>
+#include <bitset>
+#include <cassert>
+#include <chrono>
+#include <cmath>
+#include <complex>
+#include <cstring>
+#include <functional>
+#include <iomanip>
+#include <iostream>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <random>
+#include <set>
+#include <vector>
+#include <climits>
 using namespace std;
-#define int long long
-int m = 1e9 + 7;
 
-// int binpow(int a, int p, int m) {
-//     if (p == 0) return 1;
-//     if (p % 2 == 1) return (binpow(a, p - 1, m) * a) % m;
-//     else {
-//         int temp = binpow(a, p / 2, m);
-//         return (temp * temp) % m;
-//     }
-// }
+using ll = long long;
+using db = long double;
+using str = string;
 
-void Solve() {
-    int a,b,c;
-    cin >> a >> b >> c;
-    int mx = max({a, b, c});
-    int mn = min({a, b, c});
-    if (a != mx && a != mn) {
-        cout << a << '\n';
-    }
-    else if (b != mx && b != mn) {
-        cout << b << '\n';
-    }
-    else {
-        cout << c << '\n';
-    }
+// pairs
+using pi = pair<int,int>;
+using pl = pair<ll,ll>;
+using pd = pair<db,db>;
+#define mp make_pair
+#define f first
+#define s second
+
+// vectors
+#define sz(x) int(size(x))
+#define bg(x) begin(x)
+#define all(x) bg(x), end(x)
+#define rall(x) rbegin(x), rend(x)
+#define sor(x) sort(all(x))
+#define rsz resize
+#define ins insert
+#define pb push_back
+#define eb emplace_back
+#define ft front()
+#define bk back()
+
+#define lb lower_bound
+#define ub upper_bound
+
+// loops
+#define FOR(i,a,b) for (int i = (a); i < (b); ++i)
+#define F0R(i,a) FOR(i,0,a)
+#define ROF(i,a,b) for (int i = (b)-1; i >= (a); --i)
+#define R0F(i,a) ROF(i,0,a)
+#define rep(a) F0R(_,a)
+#define each(a,x) for (auto& a: x)
+
+void solve(int tc) {
+    int A, B, C;
+    cin >> A >> B >> C;
+    int mx = max({A, B, C});
+    int mn = min({A, B, C}); 
+    if (A != mx && A != mn) cout << A << '\n';
+    else if (B != mx && B != mn) cout << B << '\n';
+    else cout << C << '\n';
 }
 
-int32_t main() {
-    ios::sync_with_stdio(0);
+int main() {
+    ios::sync_with_stdio(false);
     cin.tie(nullptr);
-    int t;
-    cin >> t;
-    while (t--) Solve();
-    return 0;
+    int tc;
+    cin >> tc;
+    FOR(i,1,tc+1) solve(i);
 }
 
-/* 
-    Growth occurs when one goes beyond one's limits. 
-    Realizing that is also part of training.
-*/
+/*
+ * int overflow
+ * array bounds
+ * special cases (n = 1?)
+ * stay organized
+ * WRITE STUFF DOWN
+ * DON'T GET STUCK ON ONE APPROACH
+ */
